@@ -1,0 +1,45 @@
+﻿@model IEnumerable<campeonato.Models.CampeonatoModelo>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Insert")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pontos)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.chave)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.nome)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.pontos)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.chave)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "EditarTime", new { id = item.id }) |
+        @Html.ActionLink("Delete", "DeletarTime", new { id = item.id })
+    </td>
+</tr>
+}
+
+</table>
